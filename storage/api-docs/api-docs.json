@@ -244,7 +244,20 @@
                 "description": "View cart",
                 "operationId": "viewInventoryToCart",
                 "requestBody": {
-                    "required": false
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "number",
+                                        "example": "2"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
                 },
                 "responses": {
                     "200": {

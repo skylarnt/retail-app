@@ -24,8 +24,12 @@ class CartController extends Controller
      *      summary="View  cart ",
      *      description="View cart",
      *       @OA\RequestBody(
-     *          required=false,
-     *         @OA\Property(property="user_id", type="string", example="2"),
+     *          required=true,
+     *         @OA\JsonContent(
+     *           @OA\Property(property="user_id", type="number", example="2"),
+
+     *              
+     *          )
      *      ),
      *      @OA\Response(
      *          response=200,
