@@ -14,8 +14,8 @@ return [
     */
 
     'view' => 'Success.',
-    'created' => 'Inventory created successful.',
-    'update' => 'Inventory updated successful.',
+    'created' => 'Inventory created successfully.',
+    'update' => 'Inventory updated successfully.',
     'failed' => 'Unable to create Inventory.',
     'duplicate' => 'An Inventory with that name already exist.',
     'notFound' => 'Could not find reference for the given Inventory.',

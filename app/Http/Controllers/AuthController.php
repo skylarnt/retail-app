@@ -23,9 +23,89 @@ class AuthController extends Controller
     }
 
     /**
-     * Get a JWT via given credentials.
-     *
-     * @return \Illuminate\Http\JsonResponse
+     * @OA\Post(
+     *      path="/auth/login",
+     *      operationId="loginUser",
+     *      tags={"User"},
+     *      security={{ "apiAuth": {} }},
+     *      summary="Authenticate user",
+     *      description="Authenticate user",
+     *       @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(
+     *              @OA\Property(property="email", type="bolean", example="mailer@gmail2.com"),
+     *              @OA\Property(property="password", type="bolean", example="12345678")
+     *              
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(
+     *             @OA\Property(property="status", type="bolean", example="true"),
+     *              @OA\Property(property="message", type="bolean", example="Login successful"),
+     *              @OA\Property(
+     *                  type="object",
+     *                  property="data",
+     *                       @OA\Property(
+     *                         property="id",
+     *                         type="number",
+     *                         example="4"
+     *                      ),
+     *                       @OA\Property(
+     *                         property="first_name",
+     *                         type="string",
+     *                         example="Olamilekan"
+     *                      ),
+     *                      @OA\Property(
+     *                         property="last_name",
+     *                         type="string",
+     *                         example="Adeniyi"
+     *                      ),
+     *                      @OA\Property(
+     *                         property="email",
+     *                         type="string",
+     *                         example="mailer@gmail2.com"
+     *                      ),
+     *                      @OA\Property(
+     *                         property="user_type",
+     *                         type="string",
+     *                         example="user"
+     *                      ),
+    *                        @OA\Property(
+    *                         property="email_verified_at",
+    *                         type="null",
+    *                         example="null"
+    *                          ),
+     *                      @OA\Property(
+     *                         property="created_at",
+     *                         type="string",
+     *                         example="2022-07-10T19:16:29.000000Z"
+     *                      ),
+     *                      @OA\Property(
+     *                         property="updated_at",
+     *                         type="string",
+     *                         example="2022-07-10T19:16:29.000000Z"
+     *                      )
+     *                      
+     *              ),
+     *               @OA\Property(
+*                         property="token",
+*                         type="string",
+*                         example="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vcmV0YWlsLWFwcC50ZXN0L2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNjU3NjA5NjMwLCJleHAiOjE2NTc2MTMyMzAsIm5iZiI6MTY1NzYwOTYzMCwianRpIjoiZ1E3ZUNGMjZRamJ2VEVqUiIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.IcfCIE-Nopl-IOzK3aIABa-WYZVtt991S3LUsGxSpIw"
+     *                ),
+     *              
+     *          )
+     *       ),
+     *        @OA\Response(
+     *          response=500,
+     *          description="Internal server error."
+     *       ),
+     *         @OA\Response(
+     *          response=405,
+     *          description="Bad method."
+     *       )
+     *     )
      */
     public function login(LoginRequest $request)
     {
@@ -36,7 +116,7 @@ class AuthController extends Controller
                 'status' => false,
                 'message' => trans('auth.failed'),
                 'data' => null
-            ],401);
+            ],405);
         }
         return response()->json([
             'status' =>true,
@@ -46,6 +126,94 @@ class AuthController extends Controller
         ]);
         // return $this->respondWithToken($token);
     }
+
+     /**
+     * @OA\Post(
+     *      path="/auth/register",
+     *      operationId="registerUser",
+     *      tags={"User"},
+     *      security={{ "apiAuth": {} }},
+     *      summary="Register auth",
+     *      description="Register auth",
+     *       @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(
+     *              @OA\Property(property="first_name", type="string", example="Cabana"),
+     *              @OA\Property(property="last_name", type="string", example="Copa"),
+     *              @OA\Property(property="email", type="bolean", example="mailer@gmail22.com"),
+     *              @OA\Property(property="password", type="bolean", example="12345678")
+     *              
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(
+     *             @OA\Property(property="status", type="bolean", example="true"),
+     *              @OA\Property(property="message", type="bolean", example="Registration successful"),
+     *              @OA\Property(
+     *                  type="object",
+     *                  property="data",
+     *                       @OA\Property(
+     *                         property="id",
+     *                         type="number",
+     *                         example="4"
+     *                      ),
+     *                       @OA\Property(
+     *                         property="first_name",
+     *                         type="string",
+     *                         example="Cabana"
+     *                      ),
+     *                      @OA\Property(
+     *                         property="last_name",
+     *                         type="string",
+     *                         example="Copa"
+     *                      ),
+     *                      @OA\Property(
+     *                         property="email",
+     *                         type="string",
+     *                         example="mailer@gmail22.com"
+     *                      ),
+     *                      @OA\Property(
+     *                         property="user_type",
+     *                         type="string",
+     *                         example="user"
+     *                      ),
+    *                        @OA\Property(
+    *                         property="email_verified_at",
+    *                         type="null",
+    *                         example="null"
+    *                          ),
+     *                      @OA\Property(
+     *                         property="created_at",
+     *                         type="string",
+     *                         example="2022-07-10T19:16:29.000000Z"
+     *                      ),
+     *                      @OA\Property(
+     *                         property="updated_at",
+     *                         type="string",
+     *                         example="2022-07-10T19:16:29.000000Z"
+     *                      )
+     *                      
+     *              ),
+     *               @OA\Property(
+*                         property="token",
+*                         type="string",
+*                         example="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vcmV0YWlsLWFwcC50ZXN0L2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNjU3NjA5NjMwLCJleHAiOjE2NTc2MTMyMzAsIm5iZiI6MTY1NzYwOTYzMCwianRpIjoiZ1E3ZUNGMjZRamJ2VEVqUiIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.IcfCIE-Nopl-IOzK3aIABa-WYZVtt991S3LUsGxSpIw"
+     *                ),
+     *              
+     *          )
+     *       ),
+     *        @OA\Response(
+     *          response=500,
+     *          description="Internal server error."
+     *       ),
+     *         @OA\Response(
+     *          response=401,
+     *          description="Bad method."
+     *       )
+     *     )
+     */
 
     public function register(RegisterRequest $request)
     {

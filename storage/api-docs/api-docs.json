@@ -1,0 +1,1236 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Retail app Api",
+        "description": "L5 Swagger OpenApi description",
+        "contact": {
+            "email": "deendipo@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://retail-app.test/api",
+            "description": " API Documentation Server"
+        }
+    ],
+    "paths": {
+        "/auth/login": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Authenticate user",
+                "description": "Authenticate user",
+                "operationId": "loginUser",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "bolean",
+                                        "example": "mailer@gmail2.com"
+                                    },
+                                    "password": {
+                                        "type": "bolean",
+                                        "example": "12345678"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "bolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "bolean",
+                                            "example": "Login successful"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number",
+                                                    "example": "4"
+                                                },
+                                                "first_name": {
+                                                    "type": "string",
+                                                    "example": "Olamilekan"
+                                                },
+                                                "last_name": {
+                                                    "type": "string",
+                                                    "example": "Adeniyi"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "mailer@gmail2.com"
+                                                },
+                                                "user_type": {
+                                                    "type": "string",
+                                                    "example": "user"
+                                                },
+                                                "email_verified_at": {
+                                                    "type": "null",
+                                                    "example": "null"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "2022-07-10T19:16:29.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "2022-07-10T19:16:29.000000Z"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "token": {
+                                            "type": "string",
+                                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vcmV0YWlsLWFwcC50ZXN0L2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNjU3NjA5NjMwLCJleHAiOjE2NTc2MTMyMzAsIm5iZiI6MTY1NzYwOTYzMCwianRpIjoiZ1E3ZUNGMjZRamJ2VEVqUiIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.IcfCIE-Nopl-IOzK3aIABa-WYZVtt991S3LUsGxSpIw"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    },
+                    "405": {
+                        "description": "Bad method."
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/auth/register": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Register auth",
+                "description": "Register auth",
+                "operationId": "registerUser",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string",
+                                        "example": "Cabana"
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "example": "Copa"
+                                    },
+                                    "email": {
+                                        "type": "bolean",
+                                        "example": "mailer@gmail22.com"
+                                    },
+                                    "password": {
+                                        "type": "bolean",
+                                        "example": "12345678"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "bolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "bolean",
+                                            "example": "Registration successful"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number",
+                                                    "example": "4"
+                                                },
+                                                "first_name": {
+                                                    "type": "string",
+                                                    "example": "Cabana"
+                                                },
+                                                "last_name": {
+                                                    "type": "string",
+                                                    "example": "Copa"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "mailer@gmail22.com"
+                                                },
+                                                "user_type": {
+                                                    "type": "string",
+                                                    "example": "user"
+                                                },
+                                                "email_verified_at": {
+                                                    "type": "null",
+                                                    "example": "null"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "2022-07-10T19:16:29.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "2022-07-10T19:16:29.000000Z"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "token": {
+                                            "type": "string",
+                                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vcmV0YWlsLWFwcC50ZXN0L2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNjU3NjA5NjMwLCJleHAiOjE2NTc2MTMyMzAsIm5iZiI6MTY1NzYwOTYzMCwianRpIjoiZ1E3ZUNGMjZRamJ2VEVqUiIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.IcfCIE-Nopl-IOzK3aIABa-WYZVtt991S3LUsGxSpIw"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    },
+                    "401": {
+                        "description": "Bad method."
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/user/cart/view": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "View  cart ",
+                "description": "View cart",
+                "operationId": "viewInventoryToCart",
+                "requestBody": {
+                    "required": false
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "bolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success."
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "inventory_id": {
+                                                        "type": "number",
+                                                        "example": "28"
+                                                    },
+                                                    "user_id": {
+                                                        "type": "number",
+                                                        "example": "4"
+                                                    },
+                                                    "quantity": {
+                                                        "type": "number",
+                                                        "example": "4"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "2022-07-10T19:16:29.000000Z"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "2022-07-10T19:16:29.000000Z"
+                                                    },
+                                                    "user": {
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "number",
+                                                                "example": "4"
+                                                            },
+                                                            "first_name": {
+                                                                "type": "string",
+                                                                "example": "Olamilekan"
+                                                            },
+                                                            "last_name": {
+                                                                "type": "string",
+                                                                "example": "Adeniyi"
+                                                            },
+                                                            "email": {
+                                                                "type": "string",
+                                                                "example": "mailer@gmail2.com"
+                                                            },
+                                                            "user_type": {
+                                                                "type": "string",
+                                                                "example": "user"
+                                                            },
+                                                            "email_verified_at": {
+                                                                "type": "null",
+                                                                "example": "null"
+                                                            },
+                                                            "created_at": {
+                                                                "type": "string",
+                                                                "example": "2022-07-10T19:16:29.000000Z"
+                                                            },
+                                                            "updated_at": {
+                                                                "type": "string",
+                                                                "example": "2022-07-10T19:16:29.000000Z"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "inventory": {
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "number",
+                                                                "example": "28"
+                                                            },
+                                                            "name": {
+                                                                "type": "string",
+                                                                "example": "Odun package2"
+                                                            },
+                                                            "price": {
+                                                                "type": "number",
+                                                                "example": "1000"
+                                                            },
+                                                            "created_at": {
+                                                                "type": "string",
+                                                                "example": "2022-07-10T19:16:29.000000Z"
+                                                            },
+                                                            "updated_at": {
+                                                                "type": "string",
+                                                                "example": "2022-07-10T19:16:29.000000Z"
+                                                            },
+                                                            "inventory_quantity": {
+                                                                "properties": {
+                                                                    "id": {
+                                                                        "type": "number",
+                                                                        "example": "12"
+                                                                    },
+                                                                    "inventory_id": {
+                                                                        "type": "number",
+                                                                        "example": "28"
+                                                                    },
+                                                                    "quantity": {
+                                                                        "type": "number",
+                                                                        "example": "28"
+                                                                    },
+                                                                    "created_at": {
+                                                                        "type": "string",
+                                                                        "example": "2022-07-10T19:16:29.000000Z"
+                                                                    },
+                                                                    "updated_at": {
+                                                                        "type": "string",
+                                                                        "example": "2022-07-10T19:16:29.000000Z"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated."
+                    },
+                    "404": {
+                        "description": "Resouce not found."
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/user/cart/add": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Store Inventory to cart ",
+                "description": "Store Inventory to cart",
+                "operationId": "storeInventoryToCart",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "inventory_id": {
+                                        "type": "bolean",
+                                        "example": "28"
+                                    },
+                                    "quantity": {
+                                        "type": "bolean",
+                                        "example": "2"
+                                    },
+                                    "user_id": {
+                                        "type": "bolean",
+                                        "example": "4"
+                                    },
+                                    "amount": {
+                                        "type": "bolean",
+                                        "example": "2000"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number",
+                                                    "example": "1"
+                                                },
+                                                "inventory_id": {
+                                                    "type": "number",
+                                                    "example": "28"
+                                                },
+                                                "user_id": {
+                                                    "type": "number",
+                                                    "example": "4"
+                                                },
+                                                "quantity": {
+                                                    "type": "number",
+                                                    "example": "4"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "2022-07-10T19:16:29.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "2022-07-10T19:16:29.000000Z"
+                                                },
+                                                "user": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "number",
+                                                            "example": "4"
+                                                        },
+                                                        "first_name": {
+                                                            "type": "string",
+                                                            "example": "Olamilekan"
+                                                        },
+                                                        "last_name": {
+                                                            "type": "string",
+                                                            "example": "Adeniyi"
+                                                        },
+                                                        "email": {
+                                                            "type": "string",
+                                                            "example": "mailer@gmail2.com"
+                                                        },
+                                                        "user_type": {
+                                                            "type": "string",
+                                                            "example": "user"
+                                                        },
+                                                        "email_verified_at": {
+                                                            "type": "null",
+                                                            "example": "null"
+                                                        },
+                                                        "created_at": {
+                                                            "type": "string",
+                                                            "example": "2022-07-10T19:16:29.000000Z"
+                                                        },
+                                                        "updated_at": {
+                                                            "type": "string",
+                                                            "example": "2022-07-10T19:16:29.000000Z"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "inventory": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "number",
+                                                            "example": "28"
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "example": "Odun package2"
+                                                        },
+                                                        "price": {
+                                                            "type": "number",
+                                                            "example": "1000"
+                                                        },
+                                                        "created_at": {
+                                                            "type": "string",
+                                                            "example": "2022-07-10T19:16:29.000000Z"
+                                                        },
+                                                        "updated_at": {
+                                                            "type": "string",
+                                                            "example": "2022-07-10T19:16:29.000000Z"
+                                                        },
+                                                        "inventory_quantity": {
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "number",
+                                                                    "example": "12"
+                                                                },
+                                                                "inventory_id": {
+                                                                    "type": "number",
+                                                                    "example": "28"
+                                                                },
+                                                                "quantity": {
+                                                                    "type": "number",
+                                                                    "example": "28"
+                                                                },
+                                                                "created_at": {
+                                                                    "type": "string",
+                                                                    "example": "2022-07-10T19:16:29.000000Z"
+                                                                },
+                                                                "updated_at": {
+                                                                    "type": "string",
+                                                                    "example": "2022-07-10T19:16:29.000000Z"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated."
+                    },
+                    "404": {
+                        "description": "Resouce not found."
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    },
+                    "405": {
+                        "description": "Bad method."
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/inventory": {
+            "get": {
+                "tags": [
+                    "Inventory"
+                ],
+                "summary": "Get list of Inventories",
+                "description": "Returns list of Inventories",
+                "operationId": "getInventoryList",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "bolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success."
+                                        },
+                                        "data": {
+                                            "description": "bla bla bla",
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Package One"
+                                                    },
+                                                    "price": {
+                                                        "type": "number",
+                                                        "example": "20000"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "2022-07-10T19:16:29.000000Z"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "2022-07-10T19:16:29.000000Z"
+                                                    },
+                                                    "inventory_quantity": {
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "number",
+                                                                "example": "18"
+                                                            },
+                                                            "inventory_id": {
+                                                                "type": "number",
+                                                                "example": "1"
+                                                            },
+                                                            "quantity": {
+                                                                "type": "number",
+                                                                "example": "200"
+                                                            },
+                                                            "created_at": {
+                                                                "type": "string",
+                                                                "example": "2022-07-10T19:16:29.000000Z"
+                                                            },
+                                                            "updated_at": {
+                                                                "type": "string",
+                                                                "example": "2022-07-10T19:16:29.000000Z"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Inventory"
+                ],
+                "summary": "Store new inventory",
+                "description": "Returns inventory data",
+                "operationId": "storeInventory",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Inventory"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Inventory created successful.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "bolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Inventory created successfully."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number",
+                                                    "example": "1"
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Package One"
+                                                },
+                                                "price": {
+                                                    "type": "number",
+                                                    "example": "20000"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "2022-07-10T19:16:29.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "2022-07-10T19:16:29.000000Z"
+                                                },
+                                                "inventory_quantity": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "number",
+                                                            "example": "18"
+                                                        },
+                                                        "inventory_id": {
+                                                            "type": "number",
+                                                            "example": "1"
+                                                        },
+                                                        "quantity": {
+                                                            "type": "number",
+                                                            "example": "200"
+                                                        },
+                                                        "created_at": {
+                                                            "type": "string",
+                                                            "example": "2022-07-10T19:16:29.000000Z"
+                                                        },
+                                                        "updated_at": {
+                                                            "type": "string",
+                                                            "example": "2022-07-10T19:16:29.000000Z"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    }
+                }
+            }
+        },
+        "/inventory/{id}": {
+            "get": {
+                "tags": [
+                    "Inventory"
+                ],
+                "summary": "Get Inventory information",
+                "description": "Returns a single Inventory data",
+                "operationId": "getInventoryById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Inventory id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "bolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number",
+                                                    "example": "1"
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Package One"
+                                                },
+                                                "price": {
+                                                    "type": "number",
+                                                    "example": "20000"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "2022-07-10T19:16:29.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "2022-07-10T19:16:29.000000Z"
+                                                },
+                                                "inventory_quantity": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "number",
+                                                            "example": "18"
+                                                        },
+                                                        "inventory_id": {
+                                                            "type": "number",
+                                                            "example": "1"
+                                                        },
+                                                        "quantity": {
+                                                            "type": "number",
+                                                            "example": "200"
+                                                        },
+                                                        "created_at": {
+                                                            "type": "string",
+                                                            "example": "2022-07-10T19:16:29.000000Z"
+                                                        },
+                                                        "updated_at": {
+                                                            "type": "string",
+                                                            "example": "2022-07-10T19:16:29.000000Z"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/inventory/update/{id}": {
+            "put": {
+                "tags": [
+                    "Inventory"
+                ],
+                "summary": "Update existing inventory",
+                "description": "Returns updated inventory data",
+                "operationId": "updateInventory",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Inventory  id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Inventory"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "bolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Inventory updated successfully."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number",
+                                                    "example": "1"
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Package One"
+                                                },
+                                                "price": {
+                                                    "type": "number",
+                                                    "example": "20000"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "2022-07-10T19:16:29.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "2022-07-10T19:16:29.000000Z"
+                                                },
+                                                "inventory_quantity": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "number",
+                                                            "example": "18"
+                                                        },
+                                                        "inventory_id": {
+                                                            "type": "number",
+                                                            "example": "1"
+                                                        },
+                                                        "quantity": {
+                                                            "type": "number",
+                                                            "example": "200"
+                                                        },
+                                                        "created_at": {
+                                                            "type": "string",
+                                                            "example": "2022-07-10T19:16:29.000000Z"
+                                                        },
+                                                        "updated_at": {
+                                                            "type": "string",
+                                                            "example": "2022-07-10T19:16:29.000000Z"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "422": {
+                        "description": " Unprocessable Content"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/inventory/delete/{id}": {
+            "delete": {
+                "tags": [
+                    "Inventory"
+                ],
+                "summary": "Delete existing Inventory",
+                "description": "Deletes a record and returns no content",
+                "operationId": "deleteInventory",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Inventory id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "Bolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Inventory destroyed successfully."
+                                        },
+                                        "data": {
+                                            "type": "null",
+                                            "example": "null"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "405": {
+                        "description": "Unable to delete Inventory"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/user/view_inventories": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get list of Inventories for user",
+                "description": "Returns list of Inventories for user",
+                "operationId": "getInventoryListForUser",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "bolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success."
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Package One"
+                                                    },
+                                                    "price": {
+                                                        "type": "number",
+                                                        "example": "20000"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "2022-07-10T19:16:29.000000Z"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "2022-07-10T19:16:29.000000Z"
+                                                    },
+                                                    "inventory_quantity": {
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "number",
+                                                                "example": "18"
+                                                            },
+                                                            "inventory_id": {
+                                                                "type": "number",
+                                                                "example": "1"
+                                                            },
+                                                            "quantity": {
+                                                                "type": "number",
+                                                                "example": "200"
+                                                            },
+                                                            "created_at": {
+                                                                "type": "string",
+                                                                "example": "2022-07-10T19:16:29.000000Z"
+                                                            },
+                                                            "updated_at": {
+                                                                "type": "string",
+                                                                "example": "2022-07-10T19:16:29.000000Z"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated."
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "InventoryRequest": {
+                "title": "Inventory request",
+                "description": "Inventory  request body data",
+                "required": [
+                    "name",
+                    "price",
+                    "quantity"
+                ],
+                "type": "object"
+            },
+            "Cart": {
+                "title": "Cart",
+                "description": "Cart model",
+                "properties": {
+                    "inventory_id": {
+                        "title": "inventory_id",
+                        "description": "Id  of the  inventory",
+                        "type": "number",
+                        "example": "28"
+                    },
+                    "quantity": {
+                        "title": "quantity",
+                        "description": "cart quantity for  inventory",
+                        "type": "number",
+                        "example": "2"
+                    },
+                    "user_id": {
+                        "title": "user_id",
+                        "description": "user Id",
+                        "type": "number",
+                        "example": "4"
+                    },
+                    "amount": {
+                        "title": "amount",
+                        "description": "Total amount",
+                        "type": "number",
+                        "example": "1000"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Cart"
+                }
+            },
+            "Inventory": {
+                "title": "Inventory",
+                "description": "Inventory model",
+                "properties": {
+                    "name": {
+                        "title": "name",
+                        "description": "Name of the new inventory",
+                        "type": "string",
+                        "example": "Package One"
+                    },
+                    "price": {
+                        "title": "price",
+                        "description": "Inventory price",
+                        "type": "number",
+                        "example": "20000"
+                    },
+                    "quantity": {
+                        "title": "quantity",
+                        "description": "Inventory quantity",
+                        "type": "string",
+                        "example": "200"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Inventory"
+                }
+            },
+            "User": {
+                "title": "User",
+                "description": "User model",
+                "xml": {
+                    "name": "User"
+                }
+            }
+        },
+        "securitySchemes": {
+            "apiAuth": {
+                "type": "http",
+                "description": "Login with email and password to get the authentication token",
+                "name": "Token based Based",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Inventory",
+            "description": "Inventory API Endpoints for Retail app"
+        }
+    ]
+}

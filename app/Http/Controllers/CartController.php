@@ -16,10 +16,179 @@ class CartController extends Controller
         
     }
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @OA\Post(
+     *      path="/user/cart/view",
+     *      operationId="viewInventoryToCart",
+     *      tags={"User"},
+     *      security={{ "apiAuth": {} }},
+     *      summary="View  cart ",
+     *      description="View cart",
+     *       @OA\RequestBody(
+     *          required=false
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(
+     *              @OA\Property(property="status", type="bolean", example="true"),
+     *              @OA\Property(property="message", type="string", example="Success."),
+     *              @OA\Property(
+     *                  type="array",
+     *                  property="data",
+     *                  @OA\Items(
+     * 
+     *                      @OA\Property(
+     *                         property="id",
+     *                         type="number",
+     *                         example="1"
+     *                      ),
+     *                       @OA\Property(
+     *                         property="inventory_id",
+     *                         type="number",
+     *                         example="28"
+     *                      ),
+     *                      @OA\Property(
+     *                         property="user_id",
+     *                         type="number",
+     *                         example="4"
+     *                      ),
+     *                      @OA\Property(
+     *                         property="quantity",
+     *                         type="number",
+     *                         example="4"
+     *                      ),
+     *                      @OA\Property(
+     *                         property="created_at",
+     *                         type="string",
+     *                         example="2022-07-10T19:16:29.000000Z"
+     *                      ),
+     *                      @OA\Property(
+     *                         property="updated_at",
+     *                         type="string",
+     *                         example="2022-07-10T19:16:29.000000Z"
+     *                      ),
+     *                       @OA\Property(
+     *                         property="user",
+     *                         type="object",
+     *                         @OA\Property(
+        *                         property="id",
+        *                         type="number",
+        *                         example="4"
+     *                          ),
+     *                           @OA\Property(
+        *                         property="first_name",
+        *                         type="string",
+        *                         example="Olamilekan"
+     *                          ),
+     *                           @OA\Property(
+        *                         property="last_name",
+        *                         type="string",
+        *                         example="Adeniyi"
+     *                          ),
+     *                           @OA\Property(
+        *                         property="email",
+        *                         type="string",
+        *                         example="mailer@gmail2.com"
+     *                          ),
+     *                          @OA\Property(
+        *                         property="user_type",
+        *                         type="string",
+        *                         example="user"
+     *                          ),
+     *                          @OA\Property(
+        *                         property="email_verified_at",
+        *                         type="null",
+        *                         example="null"
+     *                          ),
+     *                          @OA\Property(
+        *                         property="created_at",
+        *                         type="string",
+        *                         example="2022-07-10T19:16:29.000000Z"
+        *                      ),
+        *                      @OA\Property(
+        *                         property="updated_at",
+        *                         type="string",
+        *                         example="2022-07-10T19:16:29.000000Z"
+        *                      ),
+     *                      ),
+     *                      @OA\Property(
+     *                         property="inventory",
+     *                         type="object",
+     *                         @OA\Property(
+        *                         property="id",
+        *                         type="number",
+        *                         example="28"
+     *                          ),
+     *                           @OA\Property(
+        *                         property="name",
+        *                         type="string",
+        *                         example="Odun package2"
+     *                          ),
+     *                           @OA\Property(
+        *                         property="price",
+        *                         type="number",
+        *                         example="1000"
+     *                          ),
+     *                          @OA\Property(
+        *                         property="created_at",
+        *                         type="string",
+        *                         example="2022-07-10T19:16:29.000000Z"
+        *                      ),
+        *                      @OA\Property(
+        *                         property="updated_at",
+        *                         type="string",
+        *                         example="2022-07-10T19:16:29.000000Z"
+        *                      ),
+        *                        @OA\Property(
+     *                              property="inventory_quantity",
+     *                              type="object",
+        *                         @OA\Property(
+            *                         property="id",
+            *                         type="number",
+            *                         example="12"
+        *                          ),
+     *                           @OA\Property(
+        *                         property="inventory_id",
+        *                         type="number",
+        *                         example="28"
+     *                          ),
+     *                           @OA\Property(
+        *                         property="quantity",
+        *                         type="number",
+        *                         example="28"
+     *                          ),
+     *                          @OA\Property(
+        *                         property="created_at",
+        *                         type="string",
+        *                         example="2022-07-10T19:16:29.000000Z"
+        *                      ),
+        *                      @OA\Property(
+        *                         property="updated_at",
+        *                         type="string",
+        *                         example="2022-07-10T19:16:29.000000Z"
+        *                      ),
+                                
+     *                      ),
+
+     *                      ),
+     *                  ),
+     *              
+     *                      
+     *              ),
+     *              
+     *          )
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated."
+     *       ),
+     *         @OA\Response(
+     *          response=404,
+     *          description="Resouce not found."
+     *       ),
+     *     )
      */
+    
     public function index(Request $request)
     {
         $request->validate([
@@ -41,12 +210,188 @@ class CartController extends Controller
         ]);
     }
     
-
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @OA\Post(
+     *      path="/user/cart/add",
+     *      operationId="storeInventoryToCart",
+     *      tags={"User"},
+     *      security={{ "apiAuth": {} }},
+     *      summary="Store Inventory to cart ",
+     *      description="Store Inventory to cart",
+     *       @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(
+     *              @OA\Property(property="inventory_id", type="bolean", example="28"),
+     *              @OA\Property(property="quantity", type="bolean", example="2"),
+     *              @OA\Property(property="user_id", type="bolean", example="4"),
+     *              @OA\Property(property="amount", type="bolean", example="2000")
+     *              
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(
+     *             
+     *              @OA\Property(
+     *                  type="object",
+     *                  property="data",
+     *                       @OA\Property(
+     *                         property="id",
+     *                         type="number",
+     *                         example="1"
+     *                      ),
+     *                       @OA\Property(
+     *                         property="inventory_id",
+     *                         type="number",
+     *                         example="28"
+     *                      ),
+     *                      @OA\Property(
+     *                         property="user_id",
+     *                         type="number",
+     *                         example="4"
+     *                      ),
+     *                      @OA\Property(
+     *                         property="quantity",
+     *                         type="number",
+     *                         example="4"
+     *                      ),
+     *                      @OA\Property(
+     *                         property="created_at",
+     *                         type="string",
+     *                         example="2022-07-10T19:16:29.000000Z"
+     *                      ),
+     *                      @OA\Property(
+     *                         property="updated_at",
+     *                         type="string",
+     *                         example="2022-07-10T19:16:29.000000Z"
+     *                      ),
+     *                       @OA\Property(
+     *                         property="user",
+     *                         type="object",
+     *                         @OA\Property(
+        *                         property="id",
+        *                         type="number",
+        *                         example="4"
+     *                          ),
+     *                           @OA\Property(
+        *                         property="first_name",
+        *                         type="string",
+        *                         example="Olamilekan"
+     *                          ),
+     *                           @OA\Property(
+        *                         property="last_name",
+        *                         type="string",
+        *                         example="Adeniyi"
+     *                          ),
+     *                           @OA\Property(
+        *                         property="email",
+        *                         type="string",
+        *                         example="mailer@gmail2.com"
+     *                          ),
+     *                          @OA\Property(
+        *                         property="user_type",
+        *                         type="string",
+        *                         example="user"
+     *                          ),
+     *                          @OA\Property(
+        *                         property="email_verified_at",
+        *                         type="null",
+        *                         example="null"
+     *                          ),
+     *                          @OA\Property(
+        *                         property="created_at",
+        *                         type="string",
+        *                         example="2022-07-10T19:16:29.000000Z"
+        *                      ),
+        *                      @OA\Property(
+        *                         property="updated_at",
+        *                         type="string",
+        *                         example="2022-07-10T19:16:29.000000Z"
+        *                      ),
+     *                      ),
+     *                      @OA\Property(
+     *                         property="inventory",
+     *                         type="object",
+     *                         @OA\Property(
+        *                         property="id",
+        *                         type="number",
+        *                         example="28"
+     *                          ),
+     *                           @OA\Property(
+        *                         property="name",
+        *                         type="string",
+        *                         example="Odun package2"
+     *                          ),
+     *                           @OA\Property(
+        *                         property="price",
+        *                         type="number",
+        *                         example="1000"
+     *                          ),
+     *                          @OA\Property(
+        *                         property="created_at",
+        *                         type="string",
+        *                         example="2022-07-10T19:16:29.000000Z"
+        *                      ),
+        *                      @OA\Property(
+        *                         property="updated_at",
+        *                         type="string",
+        *                         example="2022-07-10T19:16:29.000000Z"
+        *                      ),
+        *                        @OA\Property(
+     *                              property="inventory_quantity",
+     *                              type="object",
+        *                         @OA\Property(
+            *                         property="id",
+            *                         type="number",
+            *                         example="12"
+        *                          ),
+     *                           @OA\Property(
+        *                         property="inventory_id",
+        *                         type="number",
+        *                         example="28"
+     *                          ),
+     *                           @OA\Property(
+        *                         property="quantity",
+        *                         type="number",
+        *                         example="28"
+     *                          ),
+     *                          @OA\Property(
+        *                         property="created_at",
+        *                         type="string",
+        *                         example="2022-07-10T19:16:29.000000Z"
+        *                      ),
+        *                      @OA\Property(
+        *                         property="updated_at",
+        *                         type="string",
+        *                         example="2022-07-10T19:16:29.000000Z"
+        *                      ),
+                                
+     *                      ),
+
+     *                      ),
+     *                      
+     *              ),
+     *              
+     *          )
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated."
+     *       ),
+     *         @OA\Response(
+     *          response=404,
+     *          description="Resouce not found."
+     *       ),
+     *        @OA\Response(
+     *          response=500,
+     *          description="Internal server error."
+     *       ),
+     *         @OA\Response(
+     *          response=405,
+     *          description="Bad method."
+     *       )
+     *     )
      */
     public function store(CartRequest $request)
     {
@@ -79,7 +424,7 @@ class CartController extends Controller
             'status' => false,
             'message' => trans('cart.quantity_error'),
             'data' => null
-        ],404);
+        ],405);
         
 
         // Calculate and validate inventory price with quantity.

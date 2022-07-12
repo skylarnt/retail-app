@@ -5,13 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-
+/**
+ * @OA\Schema(
+ *     title="Inventory",
+ *     description="Inventory model",
+ *     @OA\Xml(
+ *         name="Inventory"
+ *     )
+ * )
+ */
 class Inventory extends Model
 {
     use HasFactory;
     protected $with=['inventoryQuantity'];
-    protected $fillable=['name', 'price', 'quantity'];  
-    protected $quantity;
+    protected $fillable=['name', 'price', 'quantity']; 
+    
 
     
 
@@ -26,6 +34,42 @@ class Inventory extends Model
             Quantity::where('inventory_id', $model->id)->delete();
         });
     }
+    
 
+    /**
+     * @OA\Property(
+     *      title="name",
+     *      description="Name of the new inventory",
+     *      example="Package One"
+     * )
+     *
+     * @var string
+     */
+    private $name;
+
+    /**
+    * @OA\Property(
+    *      title="price",
+    *      description="Inventory price",
+    *      type="number",
+    *      example="20000"
+    * )
+    *
+    * @var string
+    */
+   private $price;
+
+    /**
+    * @OA\Property(
+    *      title="quantity",
+    *      description="Inventory quantity",
+    *      example="200"
+    * )
+    *
+    * @var string
+    */
+   private $quantity;
+
+   
     
 }

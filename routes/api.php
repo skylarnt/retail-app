@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\ClientController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +25,9 @@ Route::group(['middleware' => 'api'], function () {
         Route::post('register', [AuthController::class, 'register'])->withoutMiddleware('api');
         Route::get('logout', [AuthController::class, 'logout'])->withoutMiddleware('api');
         Route::post('refresh', [AuthController::class, 'refresh']);
+        Route::get('me', function($q) {
+            return auth()->user();
+        });
 
     });
 
@@ -38,8 +41,8 @@ Route::group(['middleware' => 'api'], function () {
 
     });
 
-    Route::prefix('client')->group(function() {
-        Route::get('/view_inventories', [ClientController::class, 'index']);
+    Route::prefix('user')->group(function() {
+        Route::get('/view_inventories', [UserController::class, 'index']);
         
         Route::prefix('cart')->group(function() {
             Route::post('/view', [CartController::class, 'index']);
