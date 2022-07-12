@@ -14,7 +14,7 @@
     },
     "servers": [
         {
-            "url": "http://retail-app.test/api",
+            "url": "https://retail-backend-api.herokuapp.com/api",
             "description": " API Documentation Server"
         }
     ],
